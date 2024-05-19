@@ -1,0 +1,30 @@
+model_params:
+  name: 'VanillaVAE'
+  in_channels: 3
+  latent_dim: 128
+        # Other parameters required by the model
+
+data_params:
+  data_path: r"F:\picmat\celeba\img_align_celeba\"
+  train_batch_size: 64 # Better to have a square number
+  val_batch_size:  64
+  patch_size: 64  # Models are designed to work for this size
+  num_workers: 4
+
+exp_params:
+  manual_seed: 1265
+  LR: 0.005
+  weight_decay: 0.0
+  scheduler_gamma: 0.95
+  kld_weight: 0.00025
+           # Other arguments required for training, like scheduler etc.
+
+
+trainer_params:
+  gpus: 1
+  max_epochs: 100
+  gradient_clip_val: 1.5
+
+logging_params:
+  save_dir: "results/"
+  name: "try"
